@@ -28,6 +28,12 @@
                         <td>${meal.getDateTime().format(formatter)}</td>
                         <td>${meal.getDescription()}</td>
                         <td>${meal.getCalories()}</td>
+                        <td>
+                            <a href="<c:url value="/meals/edit">
+                                    <c:param name="id" value="${meals.indexOf(meal)}"/>
+                            </c:url>">Edit</a>
+
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>
