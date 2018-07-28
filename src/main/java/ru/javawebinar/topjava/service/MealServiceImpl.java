@@ -23,7 +23,7 @@ public class MealServiceImpl implements MealService {
 
     @Override
     public Meal get(int id, int userId) {
-        return checkNotFoundWithId(repository.get(id, userId), id);
+        return repository.get(id, userId);
     }
 
     @Override
