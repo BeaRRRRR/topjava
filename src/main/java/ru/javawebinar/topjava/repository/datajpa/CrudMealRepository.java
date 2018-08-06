@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-
+@Transactional(readOnly = true)
 public interface CrudMealRepository extends JpaRepository<Meal, Integer> {
     @Modifying
     @Query(value = Meal.GET_BETWEEN)
