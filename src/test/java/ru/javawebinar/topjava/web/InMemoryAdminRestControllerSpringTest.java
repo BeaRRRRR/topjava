@@ -20,7 +20,7 @@ import java.util.Collection;
 import static ru.javawebinar.topjava.UserTestData.ADMIN;
 
 
-@ContextConfiguration(value = {"classpath:spring/spring-app.xml", "classpath:spring/mock.xml"},classes = {AdminRestController.class})
+@ContextConfiguration(value = {"classpath:spring/spring-app.xml", "classpath:spring/mock.xml"})
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @EnableWebMvc
