@@ -26,8 +26,7 @@ public class JdbcUserServiceTest extends AbstractUserServiceTest {
     @Override
     @Before
     public void setUp() throws Exception {
-//        super.setUp();
-        Field field = AbstractUserServiceTest.class.getDeclaredField("jpaUtil");
+        Field field = JdbcUserServiceTest.class.getDeclaredField("jpaUtil");
         Annotation oldAutowired = field.getAnnotation(Autowired.class);
         field.setAccessible(true);
 
@@ -45,7 +44,7 @@ public class JdbcUserServiceTest extends AbstractUserServiceTest {
         };
 
         Map<Class<? extends Annotation>, Annotation> annotationMap =
-                (Map<Class<? extends Annotation>, Annotation>) field.get(AbstractUserServiceTest.class);
+                (Map<Class<? extends Annotation>, Annotation>) field.get(JdbcUserServiceTest.class);
         annotationMap.put(Autowired.class, newAutowired);
     }
 }
