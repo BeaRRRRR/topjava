@@ -5,7 +5,7 @@ import ru.javawebinar.topjava.web.json.JsonUtil;
 
 import java.io.UnsupportedEncodingException;
 
-public class TestUtil {
+public class  TestUtil {
 
     public static String getContent(ResultActions action) throws UnsupportedEncodingException {
         return action.andReturn().getResponse().getContentAsString();
