@@ -30,7 +30,7 @@
         <button type="submit"><spring:message code="meal.filter"/></button>
     </form>
     <hr>
-    <a href="meals/create"><spring:message code="meal.add"/></a>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-toggle="#addMeal">Добавить еду</button>
     <hr>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
@@ -59,6 +59,47 @@
         </c:forEach>
     </table>
 </section>
+
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><spring:message code="meal.add"/></h4>
+                <button type="button" class="close" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+                <jsp:useBean id="meal" type="ru.javawebinar.topjava.model.Meal" scope="request"/>
+                <h3><spring:message code="${meal.isNew() ? 'meal.add' : 'meal.edit'}"/></h3>
+                <hr>
+                <form id="detailsForm">
+                    <input type="hidden" name="id" value="${meal.id}">
+                    <div>
+                        <label class="col-form-label" for="dateTime"><spring:message code="meal.dateTime"/>:</label>
+                        <input class="form-control" type="datetime-local" value="${meal.dateTime}" name="dateTime" id="dateTime" required>
+                    </div>
+                    <div>
+                        <<label for="description"></label>><spring:message code="meal.description"/>:</label>
+                        <input type="text" value="${meal.description}" size=40 name="description" id="description" placeholder="<spring:message code="meal.description"/>" required/>
+                    </div>
+                    <div>
+                        <label for="calories"><spring:message code="meal.calories"/>:</label>
+                        <input type="number" value="${meal.calories}" name="calories" id="calories" placeholder="<spring:message code="meal.calories"/>" required/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <span class="fa fa-close"></span>
+                    <spring:message code="common.cancel"/>
+                </button>
+                <button type="button" class="btn btn-primary" onclick="save()">
+                    <span class="fa fa-check"></span>
+                    <spring:message code="common.cancel"/>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <jsp:include page="fragments/footer.jsp"/>
 </body>
 </html>
